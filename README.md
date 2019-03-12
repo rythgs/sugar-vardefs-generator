@@ -2,6 +2,8 @@
 
 Generate SugarCRM vardefs.
 
+https://5c87bf230ee3250007d458b3--flamboyant-bell-d93a93.netlify.com
+
 Enter the following text in the text area on the left.
 
 ```
