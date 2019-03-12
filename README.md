@@ -57,3 +57,7 @@ $dictionary['@@module@@']['fields']['my_field'] = [
 | `currency` | `example@currency:1` |
 | `relate` | `example@relate:1:::Users` |
 | `bool` | `example@bool:1` |
+
+### License
+
+MIT
