@@ -50,8 +50,8 @@ class App extends Component {
         return
       }
 
-      const fieldName = def[0]
-      const fieldDefs = def[1].split(':')
+      const fieldName = def[0].trim()
+      const fieldDefs = def[1].split(':').map(def => def.trim())
 
       const [fieldType, required, len, defaultValue, relateModule] = fieldDefs
 
