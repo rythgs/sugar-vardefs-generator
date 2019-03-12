@@ -1,4 +1,4 @@
-# 🍺 SugarCRM Vardefs Creator
+# 🍺 SugarCRM Vardefs Generator
 
 Generate SugarCRM vardefs.
 

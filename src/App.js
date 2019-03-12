@@ -28,7 +28,7 @@ class App extends Component {
           <div>
             <textarea
               className="paste-area"
-              placeholder="🍺 This app is vardefs creator. Paste vardef definition!&#13;&#10;<fieldName>@<fieldType>:<required>:<length>:<defaultValue>&#13;&#10;ex. example@varchar:1:30:hoge"
+              placeholder="🍺 This app is sugarcrm vardefs generator. Paste vardef definition!&#13;&#10;<fieldName>@<fieldType>:<required>:<length>:<defaultValue>&#13;&#10;ex. example@varchar:1:30:hoge"
               onInput={({ target: { value } }) => this.generate(value)}
             />
           </div>
