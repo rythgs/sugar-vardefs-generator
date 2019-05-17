@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import _ from 'lodash'
 import Prism from 'prismjs'
+import CopyToClipboard from 'react-copy-to-clipboard'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faClipboard } from '@fortawesome/free-solid-svg-icons'
 
 import 'prismjs/components/prism-markup-templating'
 import 'prismjs/components/prism-php'
@@ -16,15 +19,25 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      vardefs: []
+      vardefs: [],
+      copied: false
     }
   }
 
   render() {
-    const html = Prism.highlight(this.state.vardefs.join(''), Prism.languages.php, 'php')
+    const vardefs = this.state.vardefs.join('')
+    const html = Prism.highlight(vardefs, Prism.languages.php, 'php')
     return (
       <div className="App">
         <section className="App-header">
+          <div className="tool">
+            <CopyToClipboard text={vardefs} onCopy={() => this.setState({ copied: true })}>
+              <button title="copy">
+                <FontAwesomeIcon icon={faClipboard} />
+              </button>
+            </CopyToClipboard>
+            <p>{this.state.copied ? <span style={{ color: 'red' }}>ok</span> : null}</p>
+          </div>
           <div>
             <textarea
               className="paste-area"
@@ -98,7 +111,7 @@ class App extends Component {
       }
     }, this)
 
-    this.setState({ vardefs: list })
+    this.setState({ vardefs: list, copied: false })
   }
 
   vardefs(template, fieldName, extra = {}) {
