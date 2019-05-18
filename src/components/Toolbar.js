@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
@@ -8,28 +8,20 @@ import { faClipboard } from '@fortawesome/free-solid-svg-icons'
 
 import Pane from './Pane'
 
-class Toolbar extends Component {
-  constructor() {
-    super()
-    this.state = {
-      copied: false
-    }
-  }
-
-  render() {
-    return (
-      <Wrapper>
-        <CopyToClipboard text={this.props.text} onCopy={() => this.setState({ copied: true })}>
-          <Button title="copy">
-            <FontAwesomeIcon icon={faClipboard} />
-          </Button>
-        </CopyToClipboard>
-        <p>{this.state.copied ? <span style={{ color: 'red' }}>ok</span> : null}</p>
-      </Wrapper>
-    )
-  }
+const Toolbar = ({ text }) => {
+  const [copied, setCopied] = useState(false)
+  useEffect(() => setCopied(false), [text])
+  return (
+    <Wrapper>
+      <CopyToClipboard text={text} onCopy={() => setCopied(true)}>
+        <Button title="copy">
+          <FontAwesomeIcon icon={faClipboard} />
+        </Button>
+      </CopyToClipboard>
+      <p>{copied ? <span style={{ color: 'red' }}>ok</span> : null}</p>
+    </Wrapper>
+  )
 }
-
 Toolbar.propTypes = {
   text: PropTypes.string
 }
