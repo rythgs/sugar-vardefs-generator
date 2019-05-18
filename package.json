@@ -8,10 +8,12 @@
     "@fortawesome/react-fontawesome": "^0.1.4",
     "lodash": "^4.17.11",
     "prismjs": "^1.15.0",
+    "prop-types": "^15.7.2",
     "react": "^16.8.4",
     "react-copy-to-clipboard": "^5.0.1",
     "react-dom": "^16.8.4",
-    "react-scripts": "2.1.8"
+    "react-scripts": "2.1.8",
+    "styled-components": "^4.2.0"
   },
   "scripts": {
     "start": "react-scripts start",

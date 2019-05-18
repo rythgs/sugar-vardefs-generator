@@ -1,17 +1,11 @@
 import React, { Component } from 'react'
 import _ from 'lodash'
-import Prism from 'prismjs'
-import CopyToClipboard from 'react-copy-to-clipboard'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faClipboard } from '@fortawesome/free-solid-svg-icons'
-
-import 'prismjs/components/prism-markup-templating'
-import 'prismjs/components/prism-php'
+import styled from 'styled-components'
 
 import templates from './templates'
-
-import './App.css'
-import './highlight.css'
+import Toolbar from './components/Toolbar'
+import PasteArea from './components/PasteArea'
+import Preview from './components/Preview'
 
 const SEP = '@'
 
@@ -25,32 +19,14 @@ class App extends Component {
   }
 
   render() {
-    const vardefs = this.state.vardefs.join('')
-    const html = Prism.highlight(vardefs, Prism.languages.php, 'php')
+    const vardefs = this.state.vardefs.join('').trim()
     return (
       <div className="App">
-        <section className="App-header">
-          <div className="tool">
-            <CopyToClipboard text={vardefs} onCopy={() => this.setState({ copied: true })}>
-              <button title="copy">
-                <FontAwesomeIcon icon={faClipboard} />
-              </button>
-            </CopyToClipboard>
-            <p>{this.state.copied ? <span style={{ color: 'red' }}>ok</span> : null}</p>
-          </div>
-          <div>
-            <textarea
-              className="paste-area"
-              placeholder="🍺 This app is sugarcrm vardefs generator. Paste vardef definition!&#13;&#10;<fieldName>@<fieldType>:<required>:<length>:<defaultValue>&#13;&#10;ex. example@varchar:1:30:hoge"
-              onInput={({ target: { value } }) => this.generate(value)}
-            />
-          </div>
-          <div className="preview">
-            <pre>
-              <code className="language-php" dangerouslySetInnerHTML={{ __html: html }} />
-            </pre>
-          </div>
-        </section>
+        <Editor>
+          <Toolbar text={vardefs} />
+          <PasteArea generate={this.generate.bind(this)} />
+          <Preview text={vardefs} />
+        </Editor>
       </div>
     )
   }
@@ -124,3 +100,14 @@ class App extends Component {
 }
 
 export default App
+
+const Editor = styled.section`
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: white;
+`
