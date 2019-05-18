@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 import Pane from './Pane'
 
-const PasteArea = ({ generate }) => (
+const PasteArea = ({ onInput }) => (
   <Pane>
     <Textarea
       className="paste-area"
@@ -13,13 +13,13 @@ const PasteArea = ({ generate }) => (
 <fieldName>@<fieldType>:<required>:<length>:<defaultValue>
 ex. example@varchar:1:30:hoge
 2. ← Click copy button!"
-      onInput={({ target: { value } }) => generate(value)}
+      onInput={({ target: { value } }) => onInput(value)}
     />
   </Pane>
 )
 
 PasteArea.propTypes = {
-  generate: PropTypes.func
+  onInput: PropTypes.func
 }
 
 export default PasteArea
