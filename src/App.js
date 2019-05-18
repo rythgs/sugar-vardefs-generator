@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import { throttle } from 'lodash'
 
 import Toolbar from './components/Toolbar'
 import PasteArea from './components/PasteArea'
@@ -9,11 +10,14 @@ import { parseVardefs } from './utils'
 
 const App = () => {
   const [vardefs, setVardefs] = useState('')
+  const update = throttle(value => {
+    setVardefs(parseVardefs(value))
+  }, 500)
   return (
     <div className="App">
       <Editor>
         <Toolbar text={vardefs} />
-        <PasteArea onInput={value => setVardefs(parseVardefs(value))} />
+        <PasteArea onInput={update} />
         <Preview text={vardefs} />
       </Editor>
     </div>
