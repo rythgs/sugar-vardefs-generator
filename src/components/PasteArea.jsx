@@ -1,5 +1,5 @@
-import React from 'react'
 import PropTypes from 'prop-types'
+import React from 'react'
 import styled from 'styled-components'
 
 import Pane from './Pane'
@@ -19,7 +19,7 @@ ex. example@varchar:1:30:hoge
 )
 
 PasteArea.propTypes = {
-  onInput: PropTypes.func
+  onInput: PropTypes.func,
 }
 
 export default PasteArea
@@ -30,7 +30,8 @@ const Textarea = styled.textarea`
   border: none;
   background-color: #323846;
   color: white;
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
   line-height: 1.5;
   padding: 1rem;
   outline: none;

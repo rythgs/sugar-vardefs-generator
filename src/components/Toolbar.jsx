@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react'
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
-
-import CopyToClipboard from 'react-copy-to-clipboard'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClipboard } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import PropTypes from 'prop-types'
+import React, { useEffect, useState } from 'react'
+import CopyToClipboard from 'react-copy-to-clipboard'
+import styled from 'styled-components'
 
 import Pane from './Pane'
 
@@ -23,7 +22,7 @@ const Toolbar = ({ text }) => {
   )
 }
 Toolbar.propTypes = {
-  text: PropTypes.string
+  text: PropTypes.string,
 }
 
 export default Toolbar
