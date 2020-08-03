@@ -1,16 +1,15 @@
+import { throttle } from 'lodash'
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { throttle } from 'lodash'
 
-import Toolbar from './components/Toolbar'
-import PasteArea from './components/PasteArea'
-import Preview from './components/Preview'
-
-import { parseVardefs } from './utils'
+import PasteArea from '~/components/PasteArea'
+import Preview from '~/components/Preview'
+import Toolbar from '~/components/Toolbar'
+import { parseVardefs } from '~/utils'
 
 const App = () => {
   const [vardefs, setVardefs] = useState('')
-  const update = throttle(value => {
+  const update = throttle((value) => {
     setVardefs(parseVardefs(value))
   }, 800)
   return (
