@@ -2,7 +2,7 @@
 
 Generate SugarCRM vardefs.
 
-https://flamboyant-bell-d93a93.netlify.com
+https://sugar-vardefs-generator.netlify.app
 
 Enter the following text in the text area on the left.
 
@@ -16,30 +16,30 @@ Then vardefs will be output.
 
 ```php
 $dictionary['@@module@@']['fields']['my_field'] = [
-  'required' => true,
-  'name' => 'my_field',
-  'vname' => 'LBL_MY_FIELD',
-  'type' => 'varchar',
-  'massupdate' => false,
-  'no_default' => false,
-  'comments' => '',
-  'help' => '',
-  'importable' => 'true',
-  'duplicate_merge' => 'enabled',
-  'duplicate_merge_dom_value' => '1',
-  'audited' => false,
-  'reportable' => true,
-  'unified_search' => false,
-  'merge_filter' => 'disabled',
-  'default' => 'xyz',
-  'full_text_search' => [
-    'enabled' => '0',
-    'boost' => '1',
-    'searchable' => false,
-  ],
-  'calculated' => false,
-  'len' => '100',
-  'size' => '20',
+    'required' => true,
+    'name' => 'my_field',
+    'vname' => 'LBL_MY_FIELD',
+    'type' => 'varchar',
+    'massupdate' => false,
+    'no_default' => false,
+    'comments' => '',
+    'help' => '',
+    'importable' => 'true',
+    'duplicate_merge' => 'enabled',
+    'duplicate_merge_dom_value' => '1',
+    'audited' => false,
+    'reportable' => true,
+    'unified_search' => false,
+    'merge_filter' => 'disabled',
+    'default' => 'xyz',
+    'full_text_search' => [
+        'enabled' => '0',
+        'boost' => '1',
+        'searchable' => false,
+    ],
+    'calculated' => false,
+    'len' => '100',
+    'size' => '20',
 ];
 ```
 
