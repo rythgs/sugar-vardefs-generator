@@ -1,4 +1,4 @@
-import _ from 'lodash'
+import { template } from 'lodash-es'
 
 import {
   BOOL,
@@ -15,8 +15,8 @@ import {
   VARCHAR,
 } from './templates'
 
-export const makeSingleVardefs = (template, fieldName, extra = {}) => {
-  const compiled = _.template(template)
+export const makeSingleVardefs = (tmpl, fieldName, extra = {}) => {
+  const compiled = template(tmpl)
   return compiled({
     name: fieldName,
     ...extra,

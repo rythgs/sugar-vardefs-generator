@@ -1,4 +1,4 @@
-import { throttle } from 'lodash'
+import { throttle } from 'lodash-es'
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
