@@ -22,6 +22,10 @@ PasteArea.propTypes = {
   onInput: PropTypes.func,
 }
 
+PasteArea.defaultProps = {
+  onInput: () => {},
+}
+
 export default PasteArea
 
 const Textarea = styled.textarea`
