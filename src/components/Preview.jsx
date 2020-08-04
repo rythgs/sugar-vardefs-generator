@@ -29,6 +29,10 @@ Preview.propTypes = {
   text: PropTypes.string,
 }
 
+Preview.defaultProps = {
+  text: '',
+}
+
 export default Preview
 
 const Wrapper = styled(Pane)`

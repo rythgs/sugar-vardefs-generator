@@ -12,6 +12,7 @@ const App = () => {
   const update = throttle((value) => {
     setVardefs(parseVardefs(value))
   }, 800)
+
   return (
     <div className="App">
       <Editor>

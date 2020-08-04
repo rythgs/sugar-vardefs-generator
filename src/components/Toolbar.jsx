@@ -1,4 +1,4 @@
-import { faClipboard } from '@fortawesome/free-solid-svg-icons'
+import { faCopy } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
@@ -8,21 +8,36 @@ import styled from 'styled-components'
 import Pane from './Pane'
 
 const Toolbar = ({ text }) => {
+  let timer = null
   const [copied, setCopied] = useState(false)
-  useEffect(() => setCopied(false), [text])
+  const handleCopy = () => {
+    setCopied(true)
+    timer = setTimeout(() => setCopied(false), 1200)
+  }
+
+  useEffect(() => {
+    setCopied(false)
+    clearTimeout(timer)
+  }, [text, timer])
+
   return (
     <Wrapper>
-      <CopyToClipboard text={text} onCopy={() => setCopied(true)}>
+      <CopyToClipboard text={text} onCopy={handleCopy}>
         <Button title="copy">
-          <FontAwesomeIcon icon={faClipboard} />
+          <FontAwesomeIcon icon={faCopy} />
         </Button>
       </CopyToClipboard>
-      <p>{copied ? <span style={{ color: 'red' }}>ok</span> : null}</p>
+      <p>{copied ? <span style={{ color: '#d87d7d' }}>copied</span> : null}</p>
     </Wrapper>
   )
 }
+
 Toolbar.propTypes = {
   text: PropTypes.string,
+}
+
+Toolbar.defaultProps = {
+  text: '',
 }
 
 export default Toolbar
@@ -38,8 +53,8 @@ const Button = styled.button`
   background-color: #323846;
   color: white;
   border-radius: 2px;
-  width: 2rem;
-  height: 2rem;
+  width: 3rem;
+  height: 3rem;
   cursor: pointer;
 
   &:hover {
