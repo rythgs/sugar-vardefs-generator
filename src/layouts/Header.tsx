@@ -2,9 +2,7 @@ import { Grid, Layout } from 'antd'
 import React, { FC } from 'react'
 import styled from 'styled-components'
 
-import Actions from '~/components/Actions'
-import Logo from '~/components/Logo'
-import SocialLinks from '~/components/SocialLinks'
+import { Actions, Logo, SocialLinks } from '~/components'
 
 const Wrapper = styled(Layout.Header)`
   background: #fff;
