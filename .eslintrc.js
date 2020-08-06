@@ -1,15 +1,23 @@
 module.exports = {
-  parser: 'babel-eslint',
+  parser: '@typescript-eslint/parser',
   extends: [
     'airbnb',
-    'plugin:react/recommended',
-    'plugin:import/errors',
-    'prettier',
-    'prettier/react',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:import/typescript',
+    'plugin:prettier/recommended',
+    'prettier/@typescript-eslint',
   ],
-  plugins: ['prettier', 'react', 'react-hooks', 'import', 'simple-import-sort'],
+  plugins: [
+    '@typescript-eslint',
+    'prettier',
+    'react-hooks',
+    'import',
+    'simple-import-sort',
+  ],
   parserOptions: {
     ecmaVersion: 2018,
+    sourceType: 'module',
+    project: './tsconfig.json',
   },
   env: {
     es6: true,
@@ -30,6 +38,10 @@ module.exports = {
     },
   },
   rules: {
+    // typescript
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/adjacent-overload-signatures': 'error',
     // prettier
     'prettier/prettier': 'error',
     // common

@@ -15,7 +15,11 @@ import {
   VARCHAR,
 } from './templates'
 
-export const makeSingleVardefs = (tmpl, fieldName, extra = {}) => {
+export const makeSingleVardefs = (
+  tmpl: string,
+  fieldName: string,
+  extra = {},
+): string => {
   const compiled = template(tmpl)
   return compiled({
     name: fieldName,
@@ -23,8 +27,8 @@ export const makeSingleVardefs = (tmpl, fieldName, extra = {}) => {
   })
 }
 
-export const parseVardefs = (value) => {
-  const list = []
+export const parseVardefs = (value: string): string => {
+  const list: string[] = []
   value.split('\n').forEach((line) => {
     const def = line.split('@')
     if (def.length !== 2) {
