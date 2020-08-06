@@ -17,20 +17,35 @@ import {
 
 export const makeSingleVardefs = (
   tmpl: string,
-  fieldName: string,
+  module = '@@module@@',
+  name = '@@fileName@@',
   extra = {},
 ): string => {
   const compiled = template(tmpl)
   return compiled({
-    name: fieldName,
+    module,
+    name,
     ...extra,
   })
 }
 
 export const parseVardefs = (value: string): string => {
   const list: string[] = []
+  let module: string
+
   value.split('\n').forEach((line) => {
-    const def = line.split('@')
+    const tmp = line.trim()
+    if (!tmp) return
+
+    // モジュール名取得
+    // # hogehoge => hogehoge
+    const [, m] = tmp.match(/^#\x20([a-zA-Z][a-zA-Z\\_0-9]*)$/) ?? []
+    if (m) {
+      module = m
+      return
+    }
+
+    const def = tmp.split('@')
     if (def.length !== 2) {
       return
     }
@@ -43,7 +58,7 @@ export const parseVardefs = (value: string): string => {
     switch (fieldType) {
       case 'varchar':
         list.push(
-          makeSingleVardefs(VARCHAR, fieldName, {
+          makeSingleVardefs(VARCHAR, module, fieldName, {
             required,
             len,
             defaultValue,
@@ -52,7 +67,7 @@ export const parseVardefs = (value: string): string => {
         break
       case 'phone':
         list.push(
-          makeSingleVardefs(PHONE, fieldName, {
+          makeSingleVardefs(PHONE, module, fieldName, {
             required,
             len,
             defaultValue,
@@ -61,7 +76,7 @@ export const parseVardefs = (value: string): string => {
         break
       case 'text':
         list.push(
-          makeSingleVardefs(TEXTAREA, fieldName, {
+          makeSingleVardefs(TEXTAREA, module, fieldName, {
             required,
             len,
             defaultValue,
@@ -69,14 +84,14 @@ export const parseVardefs = (value: string): string => {
         )
         break
       case 'date':
-        list.push(makeSingleVardefs(DATE, fieldName, { required }))
+        list.push(makeSingleVardefs(DATE, module, fieldName, { required }))
         break
       case 'datetime':
-        list.push(makeSingleVardefs(DATETIME, fieldName, { required }))
+        list.push(makeSingleVardefs(DATETIME, module, fieldName, { required }))
         break
       case 'int':
         list.push(
-          makeSingleVardefs(INT, fieldName, {
+          makeSingleVardefs(INT, module, fieldName, {
             required,
             len,
             defaultValue,
@@ -85,7 +100,7 @@ export const parseVardefs = (value: string): string => {
         break
       case 'enum':
         list.push(
-          makeSingleVardefs(DROPDOWN, fieldName, {
+          makeSingleVardefs(DROPDOWN, module, fieldName, {
             required,
             len,
             defaultValue,
@@ -94,7 +109,7 @@ export const parseVardefs = (value: string): string => {
         break
       case 'multienum':
         list.push(
-          makeSingleVardefs(MULTISELECT, fieldName, {
+          makeSingleVardefs(MULTISELECT, module, fieldName, {
             required,
             len,
             defaultValue,
@@ -103,7 +118,7 @@ export const parseVardefs = (value: string): string => {
         break
       case 'radioenum':
         list.push(
-          makeSingleVardefs(RADIO, fieldName, {
+          makeSingleVardefs(RADIO, module, fieldName, {
             required,
             len,
             defaultValue,
@@ -112,7 +127,7 @@ export const parseVardefs = (value: string): string => {
         break
       case 'currency':
         list.push(
-          makeSingleVardefs(CURRENCY, fieldName, {
+          makeSingleVardefs(CURRENCY, module, fieldName, {
             required,
             len,
             defaultValue,
@@ -121,7 +136,7 @@ export const parseVardefs = (value: string): string => {
         break
       case 'relate':
         list.push(
-          makeSingleVardefs(RELATE, fieldName, {
+          makeSingleVardefs(RELATE, module, fieldName, {
             required,
             relateModule,
           }),
@@ -129,7 +144,7 @@ export const parseVardefs = (value: string): string => {
         break
       case 'bool':
         list.push(
-          makeSingleVardefs(BOOL, fieldName, {
+          makeSingleVardefs(BOOL, module, fieldName, {
             required,
             defaultValue,
           }),

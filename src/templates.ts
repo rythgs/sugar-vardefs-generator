@@ -1,5 +1,5 @@
 export const VARCHAR = `
-$dictionary['@@module@@']['fields']['<%= name %>'] = [
+$dictionary['<%= module %>']['fields']['<%= name %>'] = [
     'required' => <%= required === '1' ? 'true' : 'false' %>,
     'name' => '<%= name %>',
     'vname' => 'LBL_<%= name.toLocaleUpperCase() %>',
@@ -28,7 +28,7 @@ $dictionary['@@module@@']['fields']['<%= name %>'] = [
 `
 
 export const BOOL = `
-$dictionary['@@module@@']['fields']['<%= name %>'] = [
+$dictionary['<%= module %>']['fields']['<%= name %>'] = [
     'required' => <%= required === '1' ? 'true' : 'false' %>,
     'name' => '<%= name %>',
     'vname' => 'LBL_<%= name.toLocaleUpperCase() %>',
@@ -52,7 +52,7 @@ $dictionary['@@module@@']['fields']['<%= name %>'] = [
 `
 
 export const DROPDOWN = `
-$dictionary['@@module@@']['fields']['<%= name %>'] = [
+$dictionary['<%= module %>']['fields']['<%= name %>'] = [
     'required' => <%= required === '1' ? 'true' : 'false' %>,
     'name' => '<%= name %>',
     'vname' => 'LBL_<%= name.toLocaleUpperCase() %>',
@@ -78,7 +78,7 @@ $dictionary['@@module@@']['fields']['<%= name %>'] = [
 `
 
 export const DATE = `
-$dictionary['@@module@@']['fields']['<%= name %>'] = [
+$dictionary['<%= module %>']['fields']['<%= name %>'] = [
     'required' => <%= required === '1' ? 'true' : 'false' %>,
     'name' => '<%= name %>',
     'vname' => 'LBL_<%= name.toLocaleUpperCase() %>',
@@ -101,7 +101,7 @@ $dictionary['@@module@@']['fields']['<%= name %>'] = [
 `
 
 export const DATETIME = `
-$dictionary['@@module@@']['fields']['<%= name %>'] = [
+$dictionary['<%= module %>']['fields']['<%= name %>'] = [
     'required' => <%= required === '1' ? 'true' : 'false' %>,
     'name' => '<%= name %>',
     'vname' => 'LBL_<%= name.toLocaleUpperCase() %>',
@@ -125,7 +125,7 @@ $dictionary['@@module@@']['fields']['<%= name %>'] = [
 `
 
 export const INT = `
-$dictionary['@@module@@']['fields']['<%= name %>'] = [
+$dictionary['<%= module %>']['fields']['<%= name %>'] = [
     'required' => <%= required === '1' ? 'true' : 'false' %>,
     'name' => '<%= name %>',
     'vname' => 'LBL_<%= name.toLocaleUpperCase() %>',
@@ -158,7 +158,7 @@ $dictionary['@@module@@']['fields']['<%= name %>'] = [
 `
 
 export const RADIO = `
-$dictionary['@@module@@']['fields']['<%= name %>'] = [
+$dictionary['<%= module %>']['fields']['<%= name %>'] = [
     'required' => <%= required === '1' ? 'true' : 'false' %>,
     'name' => '<%= name %>',
     'vname' => 'LBL_<%= name.toLocaleUpperCase() %>',
@@ -185,7 +185,7 @@ $dictionary['@@module@@']['fields']['<%= name %>'] = [
 `
 
 export const TEXTAREA = `
-$dictionary['@@module@@']['fields']['<%= name %>'] = [
+$dictionary['<%= module %>']['fields']['<%= name %>'] = [
     'required' => <%= required === '1' ? 'true' : 'false' %>,
     'name' => '<%= name %>',
     'vname' => 'LBL_<%= name.toLocaleUpperCase() %>',
@@ -216,7 +216,7 @@ $dictionary['@@module@@']['fields']['<%= name %>'] = [
 `
 
 export const PHONE = `
-$dictionary['@@module@@']['fields']['<%= name %>'] = [
+$dictionary['<%= module %>']['fields']['<%= name %>'] = [
     'required' => <%= required === '1' ? 'true' : 'false' %>,
     'name' => '<%= name %>',
     'vname' => 'LBL_<%= name.toLocaleUpperCase() %>',
@@ -246,7 +246,7 @@ $dictionary['@@module@@']['fields']['<%= name %>'] = [
 `
 
 export const CURRENCY = `
-$dictionary['@@module@@']['fields']['<%= name %>'] = [
+$dictionary['<%= module %>']['fields']['<%= name %>'] = [
     'required' => <%= required === '1' ? 'true' : 'false' %>,
     'name' => '<%= name %>',
     'vname' => 'LBL_<%= name.toLocaleUpperCase() %>',
@@ -274,7 +274,7 @@ $dictionary['@@module@@']['fields']['<%= name %>'] = [
     ],
 ];
 
-$dictionary['@@module@@']['fields']['currency_id'] = [
+$dictionary['<%= module %>']['fields']['currency_id'] = [
     'required' => false,
     'name' => 'currency_id',
     'vname' => 'LBL_CURRENCY_ID',
@@ -299,7 +299,7 @@ $dictionary['@@module@@']['fields']['currency_id'] = [
     'function_bean' => 'Currencies',
 ];
 
-$dictionary['@@module@@']['fields']['base_rate'] = [
+$dictionary['<%= module %>']['fields']['base_rate'] = [
     'required' => false,
     'name' => 'base_rate',
     'vname' => 'LBL_CURRENCY_RATE',
@@ -326,7 +326,7 @@ $dictionary['@@module@@']['fields']['base_rate'] = [
 `
 
 export const MULTISELECT = `
-$dictionary['@@module@@']['fields']['<%= name %>'] = [
+$dictionary['<%= module %>']['fields']['<%= name %>'] = [
     'required' => <%= required === '1' ? 'true' : 'false' %>,
     'name' => '<%= name %>',
     'vname' => 'LBL_<%= name.toLocaleUpperCase() %>',
@@ -352,7 +352,7 @@ $dictionary['@@module@@']['fields']['<%= name %>'] = [
 `
 
 export const RELATE = `
-$dictionary['@@module@@']['fields']['<%= name %>_id'] = [
+$dictionary['<%= module %>']['fields']['<%= name %>_id'] = [
     'required' => false,
     'name' => '<%= name %>_id',
     'vname' => 'LBL_<%= name.toLocaleUpperCase() %>_ID',
@@ -373,7 +373,7 @@ $dictionary['@@module@@']['fields']['<%= name %>_id'] = [
     'size' => '20',
 ];
 
-$dictionary['@@module@@']['fields']['<%= name %>'] = [
+$dictionary['<%= module %>']['fields']['<%= name %>'] = [
     'required' => <%= required === '1' ? 'true' : 'false' %>,
     'source' => 'non-db',
     'name' => '<%= name %>',
