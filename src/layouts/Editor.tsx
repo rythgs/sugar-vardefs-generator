@@ -1,10 +1,9 @@
+import { Grid } from 'antd'
 import { throttle } from 'lodash-es'
 import React, { FC } from 'react'
 import styled from 'styled-components'
-import { Grid } from 'antd'
 
-import PasteArea from '~/components/PasteArea'
-import Preview from '~/components/Preview'
+import { PasteArea, Preview } from '~/components'
 import { parseVardefs } from '~/utils'
 
 type Props = {
@@ -18,7 +17,7 @@ const Wrapper = styled.section<{ small: boolean | undefined }>`
   background-color: #282c34;
   height: 100vh;
   display: flex;
-  flex-direction: ${({ small }) => small ? 'column' : 'row'};
+  flex-direction: ${({ small }) => (small ? 'column' : 'row')};
   align-items: center;
   justify-content: center;
   font-size: 14px;
@@ -29,14 +28,15 @@ const Wrapper = styled.section<{ small: boolean | undefined }>`
 const Editor: FC<Props> = ({ vardefs, setVardefs }) => {
   const { xs } = useBreakpoint()
   return (
-  <Wrapper small={xs}>
-    <PasteArea
-      onInput={throttle((value) => {
-        setVardefs(parseVardefs(value))
-      }, 800)}
-    />
-    <Preview vardefs={vardefs} />
-  </Wrapper>
-)}
+    <Wrapper small={xs}>
+      <PasteArea
+        onInput={throttle((value) => {
+          setVardefs(parseVardefs(value))
+        }, 800)}
+      />
+      <Preview vardefs={vardefs} />
+    </Wrapper>
+  )
+}
 
 export default Editor

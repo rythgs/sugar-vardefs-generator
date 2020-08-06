@@ -1,0 +1,6 @@
+export { default as Actions } from './Actions'
+export { default as Logo } from './Logo'
+export { default as Pane } from './Pane'
+export { default as PasteArea } from './PasteArea'
+export { default as Preview } from './Preview'
+export { default as SocialLinks } from './SocialLinks'
