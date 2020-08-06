@@ -1,3 +1,5 @@
+import './App.css'
+
 import { Layout } from 'antd'
 import React, { FC, useState } from 'react'
 
