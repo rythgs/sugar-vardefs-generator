@@ -1,3 +1,4 @@
+import { SmileOutlined } from '@ant-design/icons'
 import { Grid, Layout } from 'antd'
 import React, { FC } from 'react'
 import styled from 'styled-components'
@@ -19,7 +20,10 @@ const Header: FC<{ vardefs: string }> = ({ vardefs }) => {
   const { xs } = useBreakpoint()
   return (
     <Wrapper>
-      <Logo>{xs ? '🍺' : '🍺　Sugar Vardefs Generator'}</Logo>
+      <Logo>
+        <SmileOutlined style={{ marginRight: '0.5rem' }} />
+        {!xs && `Sugar Vardefs Generator`}
+      </Logo>
       <Actions text={vardefs} style={{ float: 'left' }} />
       <SocialLinks style={{ float: 'right' }} />
     </Wrapper>
