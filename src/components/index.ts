@@ -1,4 +1,5 @@
 export { default as Actions } from './Actions'
+export { default as Help } from './Help'
 export { default as Logo } from './Logo'
 export { default as Pane } from './Pane'
 export { default as PasteArea } from './PasteArea'
