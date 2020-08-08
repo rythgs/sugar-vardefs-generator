@@ -1,5 +1,5 @@
 import { CopyOutlined, SaveOutlined } from '@ant-design/icons'
-import { Menu, notification } from 'antd'
+import { Menu, message } from 'antd'
 import copy from 'copy-to-clipboard'
 import download from 'downloadjs'
 import React, { FC } from 'react'
@@ -15,19 +15,11 @@ type Props = {
 }
 
 const Actions: FC<Props> = ({ text, style }) => {
-  const notify = (message: string, description: string) => {
-    notification.success({
-      message,
-      description,
-      duration: 2,
-    })
-  }
-
   const handleActionClick = (key: React.ReactText) => {
     switch (key) {
       case 'copy':
         if (text && copy(text))
-          notify('Success !', 'クリップボードにコピーしました')
+          message.success('クリップボードにコピーしました')
         break
       case 'save':
         if (text) {
