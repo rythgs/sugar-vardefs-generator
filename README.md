@@ -13,7 +13,6 @@ Enter the following text in the text area on the left.
 like this `my_field@varchar:1:100:xyz`.  
 Then vardefs will be output.
 
-
 ```php
 $dictionary['@@module@@']['fields']['my_field'] = [
     'required' => true,
@@ -45,20 +44,20 @@ $dictionary['@@module@@']['fields']['my_field'] = [
 
 ### Supported field type
 
-| type | syntax |
-| ---- | ------ |
-| `varchar` | `example@varchar:1:100:aaa` |
-| `phone` | `example@phone:1:100:aaa` |
-| `text` | `example@text:1:100:aaa` |
-| `date` | `example@date:1` |
-| `datetime` | `example@datetime:1` |
-| `int` | `example@int:1` |
-| `enum` | `example@enum:1:100:aaa` |
-| `multienum` | `example@multienum:1:100` |
+| type        | syntax                        |
+| ----------- | ----------------------------- |
+| `varchar`   | `example@varchar:1:100:aaa`   |
+| `phone`     | `example@phone:1:100:aaa`     |
+| `text`      | `example@text:1:100:aaa`      |
+| `date`      | `example@date:1`              |
+| `datetime`  | `example@datetime:1`          |
+| `int`       | `example@int:1`               |
+| `enum`      | `example@enum:1:100:aaa`      |
+| `multienum` | `example@multienum:1:100`     |
 | `radioenum` | `example@radioenum:1:100:aaa` |
-| `currency` | `example@currency:1` |
-| `relate` | `example@relate:1:::Users` |
-| `bool` | `example@bool:1` |
+| `currency`  | `example@currency:1`          |
+| `relate`    | `example@relate:1:::Users`    |
+| `bool`      | `example@bool:1`              |
 
 ### License
 
