@@ -1,72 +1,57 @@
 module.exports = {
-  parser: '@typescript-eslint/parser',
+  env: {
+    browser: true,
+    es2020: true,
+  },
   extends: [
     'airbnb',
+    'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
+    'plugin:react-hooks/recommended',
+    'plugin:import/warnings',
     'plugin:import/typescript',
-    'plugin:prettier/recommended',
+    'prettier',
     'prettier/@typescript-eslint',
   ],
-  plugins: [
-    '@typescript-eslint',
-    'prettier',
-    'react-hooks',
-    'import',
-    'simple-import-sort',
-  ],
+  parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaVersion: 2018,
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: 12,
     sourceType: 'module',
-    project: './tsconfig.json',
   },
-  env: {
-    es6: true,
-    browser: true,
-  },
+  plugins: ['react', '@typescript-eslint'],
   settings: {
-    'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],
-    'import/core-modules': ['app'],
     'import/resolver': {
-      node: {
-        paths: ['./', 'src'],
-        extensions: ['.js', '.jsx', '.ts', '.tsx', 'json'],
-      },
       alias: {
         map: [['~', './src']],
-        extensions: ['.js', '.jsx', '.ts', '.tsx', 'json', '.d.ts'],
+        extensions: ['.js', '.jsx', '.ts', '.tsx', 'json', '.d.ts', '.css'],
       },
     },
   },
   rules: {
-    // typescript
-    '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/no-explicit-any': 'off',
-    '@typescript-eslint/adjacent-overload-signatures': 'error',
-    // prettier
-    'prettier/prettier': 'error',
     // common
     'prefer-const': 'error',
     'no-unused-vars': 'error',
     'no-multiple-empty-lines': ['error', { max: 1 }],
+    'no-use-before-define': 'off',
+    // typescript
+    '@typescript-eslint/no-explicit-any': 'off',
     // react
-    'react-hooks/rules-of-hooks': 'error',
-    'react/prop-types': 'off',
     'react/jsx-filename-extension': [
       'error',
       {
         extensions: ['.jsx', '.tsx'],
       },
     ],
-    'react/jsx-one-expression-per-line': 'off',
+    'react/prop-types': 'off',
     'react/jsx-props-no-spreading': 'off',
+    'react/jsx-one-expression-per-line': 'off',
+    // hooks
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
     // import
-    'import/prefer-default-export': 'off',
-    'import/newline-after-import': 'error',
-    'import/imports-first': 'error',
-    'import/no-dynamic-require': 'error',
-    'import/no-extraneous-dependencies': 'error',
-    'import/no-mutable-exports': 'error',
-    'import/no-commonjs': 'error',
     'import/extensions': [
       'error',
       'always',
@@ -77,7 +62,14 @@ module.exports = {
         tsx: 'never',
       },
     ],
-    // import sort
-    'simple-import-sort/sort': 'error',
+    'import/order': [
+      'warn',
+      {
+        alphabetize: { order: 'asc' },
+        'newlines-between': 'always',
+      },
+    ],
+    // jsx
+    'jsx-a11y/anchor-is-valid': 'off',
   },
 }

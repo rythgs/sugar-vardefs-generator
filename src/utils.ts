@@ -151,6 +151,7 @@ export const parseVardefs = (value: string): string => {
         )
         break
       default:
+        // eslint-disable-next-line no-console
         console.log(`found unknown field type! => ${fieldType}`)
         break
     }
